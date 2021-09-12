@@ -22,12 +22,12 @@ function generateItems(items) {
   let itemsHTML = "";
   items.forEach((item) => {
     let doc = document.createElement("div");
-    doc.classList.add("main-product", "mr-6", "mb-6");
+    doc.classList.add("main-product", "mr-6", "mb-6","bg-white","rounded-xl","overflow-hidden","p-2");
     doc.innerHTML = `
-    <div class="product-image w-48 h-52 bg-white rounded-xl p-6">
-      <img class="w-full h-full object-contain" src="${item.image}" alt="">
+    <div class="product-image w-48 h-52 bg-white">
+      <img class="w-full h-full object-cover rounded-md" src="${item.image}" alt="">
     </div>
-    <div class="product-name text-gray-700 font-bold mt-2 text-sm">
+    <div class="product-name text-gray-700 font-bold mt-2 text-lg">
       ${item.name}
     </div>
     <div class="product-make text-green-700 font-bold">
@@ -41,7 +41,7 @@ function generateItems(items) {
       <i class="fas fa-star"></i>
       ${item.rating}
     </div>
-    <div class="product-price font-bold text-gray-700 text-lg">
+    <div class="product-price font-bold text-gray-700 text-sm">
       ${numeral(item.price).format("$0,0.00")}
     </div>
     `;

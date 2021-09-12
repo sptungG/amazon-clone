@@ -21,11 +21,11 @@ function generateCartItems(cartItems) {
   cartItems.forEach((item) => {
     itemsHTML += `
     <div class="cart-item flex items-center pb-4 border-b border-gray-200">
-    <div class="cart-item-image w-40 h-24 bg-white p-4 rounded-lg">
-      <img class="w-full h-full object-contain" src="${item.image}" alt="">
+    <div class="cart-item-image w-40 h-40 bg-white p-2">
+      <img class="w-full h-full object-cover rounded-md" src="${item.image}" alt="">
     </div>
     <div class="cart-item-details flex-grow">
-      <div class="cart-item-title font-bold text-sm text-gray-700">${item.name}</div>
+      <div class="cart-item-title font-bold text-lg text-gray-700">${item.name}</div>
       <div class="cart-item-brand  font-bold text-sm text-gray-500">${item.make}</div>
     </div>
     <div class="cart-item-counter w-48 flex items-center">
@@ -42,7 +42,7 @@ function generateCartItems(cartItems) {
       </div>
     </div>
     <div class="cart-item-total-cost w-48 font-bold text-gray-400">
-      ${numeral(item.quantity * item.price).format('$0,0.00')}
+      ${numeral(item.quantity * item.price).format("$0,0.00")}
     </div>
     <div data-id="${item.id}" class="cart-item-delete w-10 font-bold text-gray-300 cursor-pointer hover:text-gray-400">
       <i class="fas fa-times"></i>
@@ -107,9 +107,9 @@ function increaseCount(itemId) {
 function getTotalCost(items) {
   let totalCost = 0;
   items.forEach((item) => {
-    totalCost += (item.price * item.quantity);
+    totalCost += item.price * item.quantity;
   });
-  document.querySelector(".total-cost-number").innerHTML = numeral(totalCost).format('$0,0.00');
+  document.querySelector(".total-cost-number").innerHTML = numeral(totalCost).format("$0,0.00");
 }
 
 function deleteItem(itemId) {
